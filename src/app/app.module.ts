@@ -36,6 +36,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {BasicAuthInterceptor} from './helpers/basic-auth.interceptor';
+import {AddClientComponent} from './pages/clients/add-client/add-client.component';
 
 
 
@@ -71,7 +72,7 @@ import {BasicAuthInterceptor} from './helpers/basic-auth.interceptor';
     MatTableModule,
 
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, AddClientComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
     { provide: MatDialogRef, useValue: {} },

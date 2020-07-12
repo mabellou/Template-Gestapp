@@ -13,13 +13,11 @@ import { ClientsComponent } from '../clients.component';
   templateUrl: './add-client.component.html',
   styleUrls: ['./add-client.component.scss']
 })
-
-
 export class AddClientComponent implements OnInit {
 
   listData:FormGroup;
   clientForm:FormGroup;
-  client:Client
+  client:Client;
 
   constructor(public api: ClientService ,
     public fb: FormBuilder,
@@ -44,6 +42,7 @@ export class AddClientComponent implements OnInit {
       };
      }
      this.clientForm = this.fb.group({
+      id: [''],
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       adresse: ['', [Validators.required, Validators]],
@@ -55,7 +54,6 @@ export class AddClientComponent implements OnInit {
   }
 
 onSubmit() {
-
   if (this.api.choixmenu === 'A')
   {
     this.addData();

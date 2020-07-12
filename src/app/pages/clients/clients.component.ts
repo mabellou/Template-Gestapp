@@ -26,8 +26,7 @@ export class ClientsComponent implements OnInit {
     public toaster: ToastrService,
     private router : Router,public fb: FormBuilder,
     private matDialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef:MatDialogRef<AddClientComponent>, ) {}
+    @Inject(MAT_DIALOG_DATA) public data: any,) {}
 
   ngOnInit(): void {
     this.getData();
@@ -38,7 +37,8 @@ export class ClientsComponent implements OnInit {
       dialogConfig.autoFocus = true;
       dialogConfig.disableClose = true;
       dialogConfig.width = '50%';
-      this.matDialog.open(AddClientComponent, dialogConfig);
+      const dialogRef = this.matDialog.open(AddClientComponent, dialogConfig);
+      dialogRef.afterClosed().subscribe(() => this.getData());
     }
 
     removeData(Id: string) {
